@@ -29,6 +29,8 @@
 
 #include "snake-log.h"
 
+#define SNAKE_PORT 5115
+
 #define SNAKE_MAGIC 0xDEADBEAF
 #define SNAKE_VERSION 1
 
@@ -88,5 +90,8 @@ client_info_packet_write(int fd, ClientInfoPacket* packet,
 
 void
 client_info_packet_destroy(ClientInfoPacket *packet);
+
+int 
+setnonblock(int fd);
 
 #endif

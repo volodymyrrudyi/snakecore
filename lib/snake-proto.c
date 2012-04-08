@@ -221,3 +221,15 @@ client_info_packet_destroy(ClientInfoPacket *packet)
 {
 	free(packet);
 }
+
+int 
+setnonblock(int fd)
+{
+  int flags;
+
+  flags = fcntl(fd, F_GETFL);
+  flags |= O_NONBLOCK;
+  fcntl(fd, F_SETFL, flags);
+  
+  return flags;
+}
